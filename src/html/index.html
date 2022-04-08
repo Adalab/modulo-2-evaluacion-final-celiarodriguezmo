@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/pages/main.css" />
     <title>Buscador de cócteles Celia</title>
   </head>
   <body>
@@ -33,12 +33,18 @@
           id=""
         />
       </form>
-      <section>
-        <ul class="js-list">
-          Lista
-        </ul>
+      <section class="page">
+        <div class="section-search">
+          <h2>Lista cocktails buscados</h2>
+          <ul class="section-search__list1 js-list"></ul>
+        </div>
+        <div class="section-fav">
+          <h2>Lista cocktails favoritos</h2>
+          <ul class="section-fav__list2 js-list-favs"></ul>
+        </div>
       </section>
     </main>
+
     <script type="text/javascript" src="./assets/js/main.js"></script>
   </body>
 </html>

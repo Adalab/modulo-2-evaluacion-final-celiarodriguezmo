@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100vw;
+}
+.section-search {
+  width: 50%;
+  &__list1 {
+    list-style: none;
+  }
+}
+.section-fav {
+  width: 50%;
+  &__list2 {
+    list-style: none;
+  }
+}
+.favourite {
+  background-color: rgb(224, 95, 117);
+  border: solid 5px red;
+}
+.img {
+  width: 100px;
+  height: 100px;
+}
