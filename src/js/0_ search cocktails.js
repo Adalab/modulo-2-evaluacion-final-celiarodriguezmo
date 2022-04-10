@@ -105,9 +105,11 @@ function checkFavCocktails(favoriteDrink) {
 
 btnSearch.addEventListener("click", handleUserSearchForm);
 
-const saveFavorites = JSON.parse(localStorage.getItem("saveFavorites"));
+const saveFavorites = JSON.parse(localStorage.getItem("arrayFavoritosStored"));
 if (saveFavorites !== null) {
   arrayFavoritos = saveFavorites;
+  paintFavourites();
 } else {
   console.log("no hay nada en local");
+  handleUserSearchForm(event);
 }
