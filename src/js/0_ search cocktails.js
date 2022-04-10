@@ -9,8 +9,11 @@ const urlApiCocktails =
 let SearchResults = [];
 let textSearchByUser = "";
 let favList = document.querySelector(".js-list-favs");
+let arrayFavoritos = [];
 
-//con esta función recogemos el valor de lo que escribe la usuaria, lo comparamos con la infor del servidor y mostramos los elementos que coinciden con su busqueda.
+//punto 2. Búsqueda
+
+//con esta función recogemos el valor de lo que escribe la usuaria.
 
 function handleUserSearchForm() {
   textSearchByUser = inputSearch.value;
@@ -21,7 +24,7 @@ function handleUserSearchForm() {
       SearchResults = serverInfo.drinks;
       paintResults();
 
-      /* queremos que la usuaria pueda seleccionar de los cocteles buscados los favoritos al hacer clic sobre una cóctel, por eso escuchamos de todos los elementos de la lista que tienen la clase Js-li para ver en cual pincha. */
+      /* Escuchamos de todos los elementos de la lista que tienen la clase Js-li para ver en cual pincha. */
 
       const listElement = document.getElementsByClassName("js-li");
 
@@ -44,7 +47,7 @@ function paintResults() {
 function paintCockteles(drink, list) {
   let paint = "";
 
-  paint += `<li class="js-li" data-id="${drink.idDrink}">`;
+  paint += `<li class="js-li js-fav-li" data-id="${drink.idDrink}">`;
   paint += `<article>`;
   paint += `<h3>${drink.strDrink}</h3>`;
   paint += `<img src="${drink.strDrinkThumb}"
@@ -54,79 +57,4 @@ function paintCockteles(drink, list) {
 
   list.innerHTML += paint;
 }
-
-/* crearemos una variable o constante de tipo array en JS para almacenar los cócteles favoritos.*/
-
-let arrayFavoritos = [];
-
-function addFavouriteCocktail(event) {
-  const idCocktail = event.currentTarget.dataset.id;
-  const favoriteDrink = SearchResults.filter(
-    (favoriteDrink) => idCocktail === favoriteDrink.idDrink
-  )[0];
-
-  checkFavCocktails(favoriteDrink);
-}
-
-// esta funcion pinta el listado de favoritos
-function paintFavourites() {
-  favList.innerHTML = "";
-
-  for (const drink of arrayFavoritos) {
-    paintCockteles(drink, favList);
-    paintButtonXFavorites();
-  }
-}
-function paintButtonXFavorites() {
-  let paint = "";
-
-  paint += `<div class="hidden">`;
-  paint += `x`;
-  paint += `</div>`;
-
-  favList.innerHTML += paint;
-}
-//funcion que comprueba si el cocktel está ya en el array favoritos//
-
-function checkFavCocktails(favoriteDrink) {
-  // localizamos el id de los cocteles y lo comparamos con el id del cocktel que ha pinchado la usuaria.
-
-  const isFav = arrayFavoritos.findIndex((fav) => {
-    return fav.idDrink === favoriteDrink.idDrink;
-  });
-  //con findIndex si el resultado es -1 quiere decir que no ha encontrado este elemento en la lista del arrayFavoritos
-
-  if (isFav === -1) {
-    //Añadimos el elemento al arrayFavoritos, junto con la clase que distigue a los elementos eleccionados "favourite"
-
-    arrayFavoritos.push(favoriteDrink);
-
-    //Guardamos en Local Storage la lista de Favoritos
-
-    localStorage.setItem(
-      "arrayFavoritosStored",
-      JSON.stringify(arrayFavoritos)
-    );
-    event.currentTarget.classList.add("favourite");
-
-    //llamamos a la funcion para que lo pinte.
-    paintFavourites();
-  } else {
-    console.log("Ey! ya estabas en favorito");
-  }
-}
-
 btnSearch.addEventListener("click", handleUserSearchForm);
-
-//almacenar la lista de favoritos en local storage
-
-const saveFavorites = JSON.parse(localStorage.getItem("arrayFavoritosStored"));
-if (saveFavorites !== null) {
-  // si el local storage esta lleno con los datos ya guardados los pinta
-  arrayFavoritos = saveFavorites;
-  paintFavourites();
-} else {
-  // si el local storage esta vacio y no tiene ningun dato guardado, llamo a la función handleUserSearchForm para que inicie la busqueda de cocteles.
-  console.log("no hay nada en local");
-  handleUserSearchForm(event);
-}
