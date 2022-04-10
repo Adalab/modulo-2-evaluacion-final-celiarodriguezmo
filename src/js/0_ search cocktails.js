@@ -58,17 +58,13 @@ function paintCockteles(drink, list) {
 
 let arrayFavoritos = [];
 
-// aquí localizamos el id de los cocteles y lo comparamos con el id del cocktel que ha pinchado la usuaria.
-//Añadimos la clase que distigue a los elementos eleccionados "favourite"
-
 function addFavouriteCocktail(event) {
-  let idCocktail = event.currentTarget.dataset.id;
-  event.currentTarget.classList.add("favourite");
+  const idCocktail = event.currentTarget.dataset.id;
   const favoriteDrink = SearchResults.filter(
     (favoriteDrink) => idCocktail === favoriteDrink.idDrink
   )[0];
-  arrayFavoritos.push(favoriteDrink);
-  paintFavourites(favoriteDrink, favList);
+
+  checkFavCocktails(favoriteDrink);
 }
 
 // esta funcion pinta el listado de favoritos
@@ -76,6 +72,28 @@ function paintFavourites() {
   favList.innerHTML = "";
   for (const drink of arrayFavoritos) {
     paintCockteles(drink, favList);
+  }
+}
+
+//funcion que comprueba si el cocktel está ya en el array favoritos//
+
+function checkFavCocktails(favoriteDrink) {
+  // localizamos el id de los cocteles y lo comparamos con el id del cocktel que ha pinchado la usuaria.
+
+  const isFav = arrayFavoritos.findIndex((fav) => {
+    return fav.idDrink === favoriteDrink.idDrink;
+  });
+  //con findIndex si el resultado es -1 quiere decir que no ha encontrado este elemento en la lista del arrayFavoritos
+
+  if (isFav === -1) {
+    //Añadimos el elemento al arrayFavoritos, junto con la clase que distigue a los elementos eleccionados "favourite"
+    arrayFavoritos.push(favoriteDrink);
+
+    event.currentTarget.classList.toggle("favourite");
+    //llamamos a la funcion para que lo pinte.
+    paintFavourites();
+  } else {
+    console.log("Ey! ya estabas en favorito");
   }
 }
 
