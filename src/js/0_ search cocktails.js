@@ -89,7 +89,13 @@ function checkFavCocktails(favoriteDrink) {
     //Añadimos el elemento al arrayFavoritos, junto con la clase que distigue a los elementos eleccionados "favourite"
     arrayFavoritos.push(favoriteDrink);
 
-    event.currentTarget.classList.toggle("favourite");
+    //Guardamos en Local Storage la lista de Favoritos
+
+    localStorage.setItem(
+      "arrayFavoritosStored",
+      JSON.stringify(arrayFavoritos)
+    );
+    event.currentTarget.classList.add("favourite");
     //llamamos a la funcion para que lo pinte.
     paintFavourites();
   } else {
@@ -98,3 +104,10 @@ function checkFavCocktails(favoriteDrink) {
 }
 
 btnSearch.addEventListener("click", handleUserSearchForm);
+
+const saveFavorites = JSON.parse(localStorage.getItem("saveFavorites"));
+if (saveFavorites !== null) {
+  arrayFavoritos = saveFavorites;
+} else {
+  console.log("no hay nada en local");
+}
