@@ -23,3 +23,15 @@
   width: 100px;
   height: 100px;
 }
+.hidden {
+  display: flex;
+  width: 20px;
+  padding: 5px;
+  justify-content: center;
+  line-height: 20px;
+  background-color: grey;
+  color: white;
+  border-radius: 60%;
+  font-weight: bold;
+  text-transform: uppercase;
+}

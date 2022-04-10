@@ -24,6 +24,7 @@ function handleUserSearchForm() {
       /* queremos que la usuaria pueda seleccionar de los cocteles buscados los favoritos al hacer clic sobre una cóctel, por eso escuchamos de todos los elementos de la lista que tienen la clase Js-li para ver en cual pincha. */
 
       const listElement = document.getElementsByClassName("js-li");
+
       for (const element of listElement) {
         element.addEventListener("click", addFavouriteCocktail);
       }
@@ -70,11 +71,21 @@ function addFavouriteCocktail(event) {
 // esta funcion pinta el listado de favoritos
 function paintFavourites() {
   favList.innerHTML = "";
+
   for (const drink of arrayFavoritos) {
     paintCockteles(drink, favList);
+    paintButtonXFavorites();
   }
 }
+function paintButtonXFavorites() {
+  let paint = "";
 
+  paint += `<div class="hidden">`;
+  paint += `x`;
+  paint += `</div>`;
+
+  favList.innerHTML += paint;
+}
 //funcion que comprueba si el cocktel está ya en el array favoritos//
 
 function checkFavCocktails(favoriteDrink) {
@@ -87,6 +98,7 @@ function checkFavCocktails(favoriteDrink) {
 
   if (isFav === -1) {
     //Añadimos el elemento al arrayFavoritos, junto con la clase que distigue a los elementos eleccionados "favourite"
+
     arrayFavoritos.push(favoriteDrink);
 
     //Guardamos en Local Storage la lista de Favoritos
@@ -96,6 +108,7 @@ function checkFavCocktails(favoriteDrink) {
       JSON.stringify(arrayFavoritos)
     );
     event.currentTarget.classList.add("favourite");
+
     //llamamos a la funcion para que lo pinte.
     paintFavourites();
   } else {
@@ -105,11 +118,15 @@ function checkFavCocktails(favoriteDrink) {
 
 btnSearch.addEventListener("click", handleUserSearchForm);
 
+//almacenar la lista de favoritos en local storage
+
 const saveFavorites = JSON.parse(localStorage.getItem("arrayFavoritosStored"));
 if (saveFavorites !== null) {
+  // si el local storage esta lleno con los datos ya guardados los pinta
   arrayFavoritos = saveFavorites;
   paintFavourites();
 } else {
+  // si el local storage esta vacio y no tiene ningun dato guardado, llamo a la función handleUserSearchForm para que inicie la busqueda de cocteles.
   console.log("no hay nada en local");
   handleUserSearchForm(event);
 }
