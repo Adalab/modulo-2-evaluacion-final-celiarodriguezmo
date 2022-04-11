@@ -36,5 +36,6 @@ function removePosition(cocktailSelected) {
   });
   arrayFavoritos.splice(cocktailPosition, 1);
   paintFavourites();
+
   localStorage.setItem("arrayFavoritosStored", JSON.stringify(arrayFavoritos));
 }

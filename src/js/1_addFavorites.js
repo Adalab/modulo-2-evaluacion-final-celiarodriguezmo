@@ -10,6 +10,7 @@ function addFavouriteCocktail(event) {
   )[0];
 
   checkFavCocktails(favoriteDrink);
+  //event.currentTarget.classList.remove("favourite");
 }
 
 // esta funcion pinta el listado de favoritos y el botón X
@@ -47,5 +48,7 @@ function checkFavCocktails(favoriteDrink) {
     paintFavourites();
   } else {
     console.log("ya estabas en favoritos");
+    event.currentTarget.classList.remove("favourite");
+    removeFavouriteCocktail(event);
   }
 }
