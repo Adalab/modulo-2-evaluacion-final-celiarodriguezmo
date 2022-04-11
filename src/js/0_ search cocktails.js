@@ -42,12 +42,13 @@ function paintResults() {
   }
 }
 
-//esta función detalla que propiedades necesito traer del array que me da el servidor
-
 function paintCockteles(drink, list) {
   let paint = "";
+  const isFav = arrayFavoritos.findIndex((fav) => {
+    return fav.idDrink === drink.idDrink;
+  });
 
-  paint += `<li class="js-li js-fav-li" data-id="${drink.idDrink}">`;
+  paint += `<li class="js-li js-fav-li" id="${drink.idDrink}" data-id="${drink.idDrink}">`;
   paint += `<article>`;
   paint += `<h3>${drink.strDrink}</h3>`;
   paint += `<img src="${drink.strDrinkThumb}"
@@ -57,4 +58,5 @@ function paintCockteles(drink, list) {
 
   list.innerHTML += paint;
 }
+
 btnSearch.addEventListener("click", handleUserSearchForm);

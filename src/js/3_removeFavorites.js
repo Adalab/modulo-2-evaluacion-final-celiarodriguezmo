@@ -16,26 +16,29 @@ function paintButtonXFavorites(idDrink) {
     fav.addEventListener("click", removeFavouriteCocktail);
   }
 }
-// esta función me elimina el coctel del listado de favoritos cuando pincha la X
-function removeFavouriteCocktail(event) {
-  const idFavCocktail = event.currentTarget.dataset.id;
-  console.log(idFavCocktail);
 
+// Esta función me elimina el coctel del listado de favoritos cuando pincha la X
+function removeFavouriteCocktail(event) {
+  //primero buscamos el id del coctel escuchando la X
+  const idFavCocktail = event.currentTarget.dataset.id;
   const cocktailSelected = arrayFavoritos.filter(
     (cocktailSelected) => idFavCocktail === cocktailSelected.idDrink
   )[0];
-  console.log(cocktailSelected);
 
   removePosition(cocktailSelected);
-  console.log(arrayFavoritos);
 }
 
 function removePosition(cocktailSelected) {
+  //averiguamos cual es la posición del cocktail con ese id dentro del array favoritos.
   let cocktailPosition = arrayFavoritos.findIndex((position) => {
     return position.idDrink === cocktailSelected.idDrink;
   });
+  //con el metodo Splice eliminamos el elemento que está en esa posición.
   arrayFavoritos.splice(cocktailPosition, 1);
   paintFavourites();
-
+  //aprovechamos para quitarle la clase "favorite" al elemento marcado en la lista de los resultados.
+  const idListDelete = document.getElementById(cocktailSelected.idDrink);
+  idListDelete.classList.remove("favourite");
+  //quitamos el elemento que ya no es favorito del local storage.
   localStorage.setItem("arrayFavoritosStored", JSON.stringify(arrayFavoritos));
 }
