@@ -18,7 +18,7 @@ function paintFavourites() {
 
   for (const drink of arrayFavoritos) {
     paintCockteles(drink, favList);
-    paintButtonXFavorites();
+    paintButtonXFavorites(drink.idDrink);
   }
 }
 //funcion que comprueba si el cocktel está ya en el array favoritos//
