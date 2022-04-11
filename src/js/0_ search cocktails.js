@@ -2,6 +2,7 @@
 
 const inputSearch = document.querySelector(".js-input-search");
 const btnSearch = document.querySelector(".js-btn-search");
+const btnReset = document.querySelector(".js-btn-reset");
 let resultList = document.querySelector(".js-list");
 const urlApiCocktails =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
