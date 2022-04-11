@@ -50,7 +50,7 @@ function paintCockteles(drink, list) {
   });
 
   paint += `<li class="js-li js-fav-li" id="${drink.idDrink}" data-id="${drink.idDrink}">`;
-  paint += `<article>`;
+  paint += `<article class="article">`;
   paint += `<h3>${drink.strDrink}</h3>`;
   paint += `<img src="${drink.strDrinkThumb}"
   alt="Imagen del cocktail buscado" class="img"/>`;
