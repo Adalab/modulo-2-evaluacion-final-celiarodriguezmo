@@ -53,7 +53,6 @@ function paintCockteles(drink, list) {
   paint += `<img src="${drink.strDrinkThumb}"
   alt="Imagen del cocktail buscado" class="img"/>`;
   paint += `</article>`;
-
   paint += `</li>`;
 
   list.innerHTML += paint;

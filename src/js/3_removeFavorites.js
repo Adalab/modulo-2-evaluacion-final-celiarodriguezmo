@@ -20,4 +20,21 @@ function paintButtonXFavorites(idDrink) {
 function removeFavouriteCocktail(event) {
   const idFavCocktail = event.currentTarget.dataset.id;
   console.log(idFavCocktail);
+
+  const cocktailSelected = arrayFavoritos.filter(
+    (cocktailSelected) => idFavCocktail === cocktailSelected.idDrink
+  )[0];
+  console.log(cocktailSelected);
+
+  removePosition(cocktailSelected);
+  console.log(arrayFavoritos);
+}
+
+function removePosition(cocktailSelected) {
+  let cocktailPosition = arrayFavoritos.findIndex((position) => {
+    return position.idDrink === cocktailSelected.idDrink;
+  });
+  arrayFavoritos.splice(cocktailPosition, 1);
+  paintFavourites();
+  localStorage.setItem("arrayFavoritosStored", JSON.stringify(arrayFavoritos));
 }

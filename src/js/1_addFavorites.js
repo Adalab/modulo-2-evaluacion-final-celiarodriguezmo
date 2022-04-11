@@ -18,6 +18,7 @@ function paintFavourites() {
 
   for (const drink of arrayFavoritos) {
     paintCockteles(drink, favList);
+    console.log(drink.idDrink);
     paintButtonXFavorites(drink.idDrink);
   }
 }
