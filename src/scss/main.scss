@@ -26,17 +26,72 @@
   font-family: "Monoton", cursive;
   font-size: 2.5rem;
   color: #e92949;
+  text-shadow: -4px -2px 3px rgba(6, 6, 43, 0.877);
   font-weight: 350;
   max-width: 250px;
   text-align: center;
 
   @media all and(min-width: 768px) {
-    font-size: 5rem;
+    font-size: 5.5rem;
     font-weight: 400px;
     max-width: 500px;
   }
 }
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+.title2 {
+  max-width: 250px;
+  position: absolute;
+  margin: 20px 25px 20px 25px;
+  text-align: center;
+  word-spacing: 10px;
+  font-family: "Monoton", cursive;
+  font-size: 2rem;
+  font-weight: 450;
+  text-shadow: -3px 5px 4px rgba(236, 236, 238, 0.88);
+  color: #003;
+  background-color: transparent;
+  @media all and (min-width: 768px) {
+    font-size: 4rem;
+  }
+}
 .form {
+  height: 60%;
+  padding-top: 15px;
+  background-image: url("../images/skate.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.align-buttons {
+}
+.input-search {
+  height: 25px;
+  margin: 15px 8px;
+  border-radius: 5px;
+  border-color: #e05f75;
+}
+.input-search:focus {
+  border-color: rgb(21, 112, 204);
+  box-shadow: 0 0 8px 0 rgb(27, 105, 184);
+}
+.input-search:hover {
+  border-color: rgba(243, 14, 174, 0.774);
+  box-shadow: 0 0 8px 0 rgb(230, 29, 89);
+}
+.btn-search {
+  height: 30px;
+  margin: 8px;
+}
+.btn-reset {
+  height: 30px;
+  margin: 8px;
 }
 .page {
   display: flex;
