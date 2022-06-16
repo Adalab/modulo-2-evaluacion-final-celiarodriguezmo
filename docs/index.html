@@ -4,34 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="./assets/css/pages/main.css" />
-    <title>Buscador de cócteles Celia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <title>Buscador de tus Cóckteles Favoritos</title>
   </head>
   <body>
-    <main>
-      <h1>Buscador de cócteles</h1>
-      <form action="">
+    <header class="header">
+      <div class="layout-header">
+        <h1 class="title">Cocktail on wheels</h1>
+      </div>
+    </header>
+    <main class="main">
+      <h2 class="title2">Busca tu cocktail</h2>
+      <form action="" class="form">
         <input
-          class="js-input-search"
+          class="input-search js-input-search"
           type="text"
           value=""
-          placeholder="Busca tu cóctel"
+          placeholder="Ej: Mojito"
         />
-        <input
-          type="button"
-          value="Buscar"
-          name="button-search"
-          class="js-btn-search"
-          id=""
-        />
-        <input
-          type="button"
-          value="Reset"
-          name="button-reset"
-          class="js-btn-reset"
-          id=""
-        />
+        <div class="align-buttons">
+          <input
+            type="button"
+            value="Buscar"
+            name="button-search"
+            class="btn-search js-btn-search"
+            id=""
+          />
+          <input
+            type="button"
+            value="Reset"
+            name="button-reset"
+            class="btn-reset js-btn-reset"
+            id=""
+          />
+        </div>
       </form>
       <section class="page">
         <div class="section-search">
