@@ -44,6 +44,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: radial-gradient(#003, #000);
 }
 .section-form {
   width: 100%;
@@ -51,19 +52,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   background-image: url("../images/skate.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   padding: 20px;
+  margin: 30px;
+  @media all and (min-width: 768px) {
+  }
 }
 .title2 {
   max-width: 250px;
   text-align: center;
   word-spacing: 10px;
-  font-family: "Monoton", cursive;
-  font-size: 2.2rem;
-  font-weight: 500;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 3.5rem;
+
   text-shadow: -3px 5px 4px rgba(236, 236, 238, 0.88);
   color: #003;
   background-color: transparent;
@@ -96,7 +101,7 @@
 .btn {
   font-size: 0.75rem;
   font-family: "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   width: 60px;
   height: 60px;
   border-radius: 5px;
@@ -128,15 +133,17 @@
 
 .section-page {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   width: 100vw;
   justify-content: space-around;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 2rem;
 }
 .section-search {
   width: 50%;
-  margin-top: 50px;
-  background-color: white;
-  color: rgba(23, 153, 114, 0.911);
+  padding-top: 20px;
+  background-image: url("../images/disco1.jpg");
+  color: #56c0d3;
   border-radius: 20px;
   text-align: center;
   border: solid 2px #e92949;
@@ -146,12 +153,14 @@
   color: #e92949;
 }
 .section-fav {
-  margin-top: 50px;
   width: 50%;
-  background-color: rgba(23, 153, 114, 0.911);
-  color: white;
+
+  background-repeat: no-repeat;
+  color: rgb(216, 12, 107);
   border-radius: 20px;
   text-align: center;
+  padding-top: 20px;
+  background-size: contain;
 }
 .section-fav__list2 {
   list-style: none;
@@ -161,14 +170,16 @@
   align-items: center;
 }
 .favourite {
-  width: 200px;
-  background-color: #e05f75;
   color: #179972;
   border-radius: 5px;
 }
+.favourite article {
+  background-color: #f027f78c;
+}
 .img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
 }
 .hidden {
   display: flex;
@@ -183,7 +194,8 @@
   text-transform: uppercase;
 }
 .article {
-  border: solid 2px rgba(23, 153, 114, 0.911);
+  border: solid 2px rgba(209, 15, 151, 0.911);
   border-radius: 5px;
   margin: 15px;
+  color: #56c0d3;
 }
