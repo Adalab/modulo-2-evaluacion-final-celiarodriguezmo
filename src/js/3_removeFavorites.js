@@ -5,9 +5,9 @@
 //esta función añade el boton X en la lista de los cocktails favoritos
 function paintButtonXFavorites(idDrink) {
   let paint = "";
-  paint += `<div class="js-xButton hidden " data-id="${idDrink}">`;
-  paint += `x`;
-  paint += `</div>`;
+
+  paint += `<span><i class="js-xButton hidden fa-solid fa-trash-can" data-id="${idDrink}"></span>`;
+
   favList.innerHTML += paint;
 
   let favElement = document.getElementsByClassName("js-xButton");
