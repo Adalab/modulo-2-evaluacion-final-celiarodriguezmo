@@ -7,7 +7,7 @@
 }
 .header {
   height: 100vh;
-  background: radial-gradient(#003, #000);
+  background: radial-gradient(rgb(1, 1, 75), rgb(0, 0, 0));
 }
 
 .layout-header {
@@ -52,13 +52,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   background-image: url("../images/skate.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   padding: 20px;
-  margin: 30px;
+  margin: 0px 30px 30px 30px;
   @media all and (min-width: 768px) {
   }
 }
@@ -67,7 +66,7 @@
   text-align: center;
   word-spacing: 10px;
   font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
 
   text-shadow: -3px 5px 4px rgba(236, 236, 238, 0.88);
   color: #003;
@@ -89,6 +88,7 @@
   border-radius: 5px;
   border-color: #e05f75;
   margin-bottom: 15px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
 }
 .input-search:focus {
   border-color: rgb(21, 112, 204);
@@ -136,7 +136,7 @@
   flex-direction: column;
   justify-content: space-around;
   font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .section-search {
   width: 100%;
@@ -146,6 +146,15 @@
   border-radius: 20px;
   text-align: center;
   border: solid 2px #e92949;
+}
+.ingredients {
+  font-size: 0.8rem;
+  width: 60px;
+  margin: 10px 8px;
+}
+.alcoholic {
+  font-size: 0.7rem;
+  text-transform: lowercase;
 }
 .section-search__list1 {
   list-style: none;
@@ -161,7 +170,7 @@
 }
 .section-fav__list2 {
   list-style: none;
-  color: #e92949;
+  color: rgb(216, 12, 107);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,9 +180,9 @@
   width: 100%;
 }
 .section-fav__list2 li article {
-  color: #e92949;
-  text-shadow: rgb(105, 0, 9) 3px 3px 3px;
-  background-image: url(../images/back2.jpg);
+  color: rgb(216, 12, 107);
+  text-shadow: rgb(34, 0, 37) 3px 3px 3px;
+  background-image: url(../images/galaxy.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -200,15 +209,16 @@
 }
 .article {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
   border: solid 2px rgba(209, 15, 151, 0.911);
   border-radius: 5px;
   margin: 15px;
+  padding: 8px;
   color: #56c0d3;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .article h3 {
-  margin: 10px 15px;
+  margin: 10px 8px;
 }
