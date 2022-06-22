@@ -6,7 +6,7 @@
 function paintButtonXFavorites(idDrink) {
   let paint = "";
 
-  paint += `<span><i class="js-xButton hidden fa-solid fa-trash-can" data-id="${idDrink}"></span>`;
+  paint += `<em><i class="js-xButton hidden fa-solid fa-trash-can" data-id="${idDrink}"></em>`;
 
   favList.innerHTML += paint;
 

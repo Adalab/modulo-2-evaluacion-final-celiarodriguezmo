@@ -54,16 +54,16 @@ function paintCockteles(drink, list) {
   paint += `<img src="${drink.strDrinkThumb}"
   alt="Imagen del cocktail buscado" class="img"/>`;
   paint += `<div class="container">`;
-  paint += `<h3>${drink.strDrink}</h3>`;
-  paint += `<div class="ingredients">`;
+  paint += `<h3 class="title3">${drink.strDrink}</h3>`;
+  paint += `<section class="ingredients">`;
   paint += `<p>${drink.strIngredient1}</p>`;
   paint += `<p>${drink.strIngredient2}</p>`;
   paint += `<p>${drink.strIngredient3}</p>`;
-  paint += `</div>`;
-  paint += `<div class="alcoholic">`;
+  paint += `</section>`;
+  paint += `<span class="alcoholic">`;
   paint += `<p>${drink.strAlcoholic}</p>`;
   paint += `<i class="fa-solid fa-martini-glass-citrus"></i>`;
-  paint += `</div>`;
+  paint += `</span>`;
   paint += `</div>`;
   paint += `</article>`;
   paint += `</li>`;
